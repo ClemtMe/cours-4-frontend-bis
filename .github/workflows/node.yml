@@ -18,11 +18,11 @@ jobs:
 
       - name: Project Setup
         continue-on-error: false
-        run: docker compose run --rm node npm install
+        run: docker compose run --rm --user root node npm install
 
       - name: Compile and Minify for Production
         continue-on-error: false
-        run: docker compose run --rm node npm run build
+        run: docker compose run --rm --user root node npm run build
 
       - name: Run Unit Tests with Vitest
         continue-on-error: false
