@@ -26,9 +26,9 @@ jobs:
 
       - name: Run Unit Tests with Vitest
         continue-on-error: false
-        run: docker compose run --rm node npm run test
+        run: docker compose run --rm --user root node npm run test
 
       - name: Lint with ESLint
         continue-on-error: false
-        run: docker compose run --rm node npm run lint
+        run: docker compose run --rm --user root node npm run lint
 
