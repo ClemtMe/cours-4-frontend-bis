@@ -18,7 +18,7 @@ jobs:
 
       - name: Project Setup
         continue-on-error: false
-        run: docker compose run --rm --user root node npm install
+        run: docker compose run --rm --user root node npm ci
 
       - name: Compile and Minify for Production
         continue-on-error: false
