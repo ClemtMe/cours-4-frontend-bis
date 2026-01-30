@@ -1,0 +1,30 @@
+name: node.yml
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile and Minify for Production
+        continue-on-error: false
+        run: docker compose run --rm node npm run build
+
+      - name: Run Unit Tests with Vitest
+        continue-on-error: false
+        run: docker compose run --rm node npm run test
+
+      - name: Lint with ESLint
+        continue-on-error: false
+        run: docker compose run --rm node npm run lint
+
