@@ -16,6 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Project Setup
+        continue-on-error: false
+        run: docker compose run --rm node npm install
+
       - name: Compile and Minify for Production
         continue-on-error: false
         run: docker compose run --rm node npm run build
